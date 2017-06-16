@@ -9,18 +9,19 @@ from encoder import Encoder
 
 seed = 1
 batch_size = 64
-epochs = 128
-# epochs = 1
+# epochs = 128*2
+epochs = 1
 width = 64
-samples = 1024*8
-# samples = 200
+# samples = 1024*16
+samples = 200
 split = 0.5
 params = 4
 freq = 32
 clamping = False
 
 show_margin = 8
-show_space = 4
+show_height = 8
+show_space = 2
 show_sep = 4
 
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
@@ -68,13 +69,19 @@ def save():
     encoder.serialize()
     encoder.save()
 
-def show():
+def show(x_train, y_train, x_pred, y_pred, samples = 10):
     from PIL import Image
-    img = Image.new( 'RGB', (255,255), 'white')
-    pixels = img.load()
-    for i in range(img.size[0]):
-        for j in range(img.size[1]):
-            pixels[i,j] = (i, j, 100)
+
+    w = show_margin * 2 + width
+    h = show_margin * 2 + samples * (2 * show_height + show_space) + (samples - 1) * show_sep
+
+    img = Image.new( 'RGB', (w,h), 'white')
+
+#     pixels = img.load()
+#     for i in range(img.size[0]):
+#         for j in range(img.size[1]):
+#             pixels[i,j] = (i, j, 100)
+
     img.show()
 
 (x_train, y_train) = get_samples(samples)
