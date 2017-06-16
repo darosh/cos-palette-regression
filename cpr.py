@@ -108,12 +108,15 @@ def show(x_train, y_train, x_pred, y_pred, samples = 10):
 
         i += 1
 
-    img.show()
+#     img.show()
+    img.save('cpr.png')
 
 (x_train, y_train) = get_samples(samples)
 model = get_model()
 model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, validation_split=split)
+
 save()
+
 y_pred = get_predicted(model, samples, x_train)
 (x_pred, y_pred) = get_samples(samples, y_pred)
 
