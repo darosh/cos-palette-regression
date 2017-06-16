@@ -1,0 +1,16 @@
+{
+  "name": "cos-palette-regression",
+  "private": true,
+  "scripts": {
+    "cpr": "python cpr.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darosh/cos-palette-regression.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darosh/cos-palette-regression/issues"
+  },
+  "homepage": "https://github.com/darosh/cos-palette-regression#readme"
+}

@@ -1,1 +1,6 @@
 .idea
+
+cpr.hdf5
+cpr.json
+cpr_metadata.json
+cpr_weights.buf
